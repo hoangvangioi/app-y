@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'app-y/**'
 
 env:
   DOCKER_IMAGE: hoangvangioi/app-y
@@ -30,7 +28,6 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          cd app-y
           docker build -t ${{ env.DOCKER_IMAGE }}:latest .
           docker push ${{ env.DOCKER_IMAGE }}:latest
 
